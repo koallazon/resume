@@ -8,13 +8,9 @@ npm run build
 
 cd dist
 
-#git init
-#git add -A
-#git commit -m 'New Deployment'
-#git push -f git@github.com-koallazon:koallazon/vue-resume.git master:resume-pages
-
+git init
 git add -A
 git commit -m $1
-git push origin/resume-page
+git push -f git@github.com-koallazon:koallazon/resume.git master:resume-pages
 
 cd -

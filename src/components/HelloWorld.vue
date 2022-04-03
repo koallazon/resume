@@ -2,11 +2,13 @@
   <div class="hello">
     <h1>koallzon Testing Github</h1>
     <h2>두번째 배포</h2>
+    <h2>세번째 배포</h2>
+    <h2>네번째 배포</h2>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component"
+import { Options, Vue } from "vue-class-component";
 
 @Options({
   props: {
@@ -14,7 +16,7 @@ import { Options, Vue } from "vue-class-component"
   },
 })
 export default class HelloWorld extends Vue {
-  msg!: string
+  msg!: string;
 }
 </script>
 
