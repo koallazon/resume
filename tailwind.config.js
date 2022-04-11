@@ -3,6 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./index.html", "./src/**/*.vue", "./src/**/*.ts"],
+  darkMode: "class",
   theme: {
     colors: {
       transparent: "transparent",
@@ -13,9 +14,14 @@ module.exports = {
         dark: "#009eeb",
       },
       background: {
-        light: "#ffffff",
-        DEFAULT: "#ffffff",
+        light: "#eeeeee",
+        DEFAULT: "#eeeeee",
         dark: "#000000",
+      },
+      font: {
+        light: "#000000",
+        DEFAULT: "#000000",
+        dark: "#ffffff",
       },
       gray: {
         darkest: "#1f2d3d",
@@ -46,7 +52,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
     },
   },

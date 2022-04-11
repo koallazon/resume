@@ -2,17 +2,25 @@
   <router-view />
 </template>
 
-<style lang="scss">
-#nav {
-  padding: 30px;
+<script lang="ts">
+import { defineComponent } from "vue";
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default defineComponent({
+  mounted() {
+    // 다크모드 셋팅
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark:bg-background-dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-  }
-}
-</style>
+    document.body.classList.add("bg-background-light");
+  },
+});
+</script>
+
+<style lang="scss"></style>
