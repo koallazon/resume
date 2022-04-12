@@ -1,9 +1,11 @@
 <template>
-  <div class="grid grid-cols-3 gap-x-8 mb-10">
+  <div class="career-company grid grid-cols-3 gap-x-4 tablet:gap-x-8">
     <!-- 회사명, 재직기간, 회사 소개 -->
     <div class="relative h-auto">
-      <div class="flex flex-col sticky top-20">
-        <h4 class="text-lg font-medium mb-5">{{ item.companyName }}</h4>
+      <div class="flex flex-col sticky top-12">
+        <h4 class="text-md tablet:text-lg font-medium mb-5">
+          {{ item.companyName }}
+        </h4>
         <span class="text-sm mb-2">{{ item.period }}</span>
         <span class="text-sm">{{ item.role }}</span>
         <p
@@ -12,6 +14,7 @@
         />
       </div>
     </div>
+    <!-- 프로젝트 -->
     <div class="col-span-2">
       <CareerProject
         v-for="(project, i) in item.project"
@@ -37,6 +40,11 @@ export default defineComponent({
       required: true,
     },
   },
-  // setup() {},
 });
 </script>
+
+<style scoped>
+.career-company:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+</style>

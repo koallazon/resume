@@ -1,6 +1,6 @@
 <template>
-  <div class="mb-24">
-    <h5 class="text-lg font-medium mb-6">{{ project.title }}</h5>
+  <div class="career-project">
+    <h5 class="text-md tablet:text-lg font-medium mb-6">{{ project.title }}</h5>
     <span class="text-sm">{{ project.date }}</span>
     <p class="text-sm">
       {{ project.desc }}
@@ -17,7 +17,7 @@
       <li
         v-for="(perform, i) in project.performance"
         :key="i"
-        class="leading-6 mb-1.5 word-keep"
+        class="text-sm tablet:text-base leading-6 mb-1.5 word-keep"
       >
         {{ perform }}
       </li>
@@ -49,5 +49,8 @@ ul li::before {
   display: inline-block;
   color: #1fb6ff;
   margin-right: 5px;
+}
+.career-project:not(:last-child) {
+  margin-bottom: 6rem;
 }
 </style>

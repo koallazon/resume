@@ -1,5 +1,6 @@
 <template>
   <header class="flex items-center justify-end">
+    <p class="text-xs text-gray mr-5">Last updated: {{ lastUpdateDate }}</p>
     <button
       class="bg-white text-font dark:text-font-dark pr-2 py-2"
       @click="changeTheme('light')"
@@ -37,6 +38,7 @@ export default defineComponent({
     Switch,
   },
   setup() {
+    const lastUpdateDate = ref("2022-04-12");
     const state = reactive({
       theme:
         localStorage.theme === "dark" ||
@@ -73,6 +75,7 @@ export default defineComponent({
       ...toRefs(state),
       enabled,
       isDark,
+      lastUpdateDate,
       changeTheme,
     };
   },

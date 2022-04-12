@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full mx-auto max-w-4xl">
+  <div class="w-full mx-auto max-w-4xl py-10 px-4 tablet:px-0">
     <!-- 소개 -->
-    <section class="pt-12 text-font dark:text-font-dark">
-      <h2 class="text-5xl font-bold mb-3">이태규</h2>
-      <h3 class="text-3xl font-medium mb-6">Front-end Engineer</h3>
-      <p class="leading-8 word-keep">
+    <section class="tablet:pt-12 text-font dark:text-font-dark">
+      <h2 class="text-2xl tablet:text-5xl font-bold mb-3">이태규</h2>
+      <h3 class="text-xl tablet:text-3xl mb-6">Front-end Engineer</h3>
+      <p class="text-sm tablet:text-base leading-8 word-keep">
         3년간의 웹 퍼블리셔 경험을 갖고 있는 3년차 프론트엔드 개발자입니다.<br />
         단순히 개발만하는 것보다는 서비스 관련 지식에 대해 충분히 이해하고<br />
         비지니스에 동참해서 주도적으로 일할 수 있는 환경을 선호합니다.<br />
@@ -28,9 +28,19 @@
       </ul>
     </section>
     <!-- 경력 -->
-    <section id="career" class="text-font dark:text-font-dark my-20">
-      <h3 class="text-3xl font-bold mb-5">경력</h3>
+    <section id="career" class="text-font dark:text-font-dark mt-20">
+      <h3 class="text-xl tablet:text-3xl font-bold mb-6">경력</h3>
       <CareerCompany v-for="(career, i) in careers" :key="i" :item="career" />
+    </section>
+    <!-- 기술 -->
+    <section id="skill" class="text-font dark:text-font-dark mt-20">
+      <h3 class="text-xl tablet:text-3xl font-bold mb-6">기술</h3>
+      <Skill v-for="(skill, i) in skills" :key="i" :item="skill" />
+    </section>
+    <!-- 교육 및 자격증-->
+    <section id="edu_license" class="text-font dark:text-font-dark mt-20">
+      <h3 class="text-xl tablet:text-3xl font-bold mb-6">교육 / 자격증</h3>
+      <EduLicense v-for="(edu, i) in educations" :key="i" :item="edu" />
     </section>
   </div>
 </template>
@@ -38,12 +48,16 @@
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
 import CareerCompany from "../../components/CareerCompany.vue";
+import Skill from "../../components/Skill.vue";
+import EduLicense from "../../components/Education.vue";
 import { MailIcon } from "@heroicons/vue/solid";
-import { ICareer } from "../../types";
+import { ICareer, ISkill, IEdu } from "../../types";
 export default defineComponent({
   name: "Home",
   components: {
     CareerCompany,
+    Skill,
+    EduLicense,
     MailIcon,
   },
   setup() {
@@ -115,8 +129,116 @@ export default defineComponent({
       },
     ]);
 
+    const skills: ISkill[] = reactive([
+      {
+        subject: "Web",
+        content: [
+          {
+            title: "Sass(Scss) 등의 CSS Preprocessor를 사용할 수 있습니다.",
+          },
+          {
+            title: "반응형 웹 제작에 능숙합니다.",
+          },
+          {
+            title: "다양한 브라우저(Chrome, Safari, IE)를 지원할 수 있습니다.",
+          },
+          {
+            title: "SEO()Search Engine Optimization) 적용 경험이 있습니다.",
+          },
+          {
+            title:
+              "웹 앱 기반 브라우저(Android Chrome, iOS Safari WebView)에서 트러블 슈팅 경험이 있습니다.",
+          },
+        ],
+      },
+      {
+        subject: "Javascript",
+        content: [
+          {
+            title: "Vanilla JavaScript를 활용해 DOM 조작하는 데 익숙합니다.",
+          },
+          {
+            title:
+              "reduce, map, filter 등 다양한 고차함수를 적극적으로 활용합니다.",
+          },
+          {
+            title:
+              "ES6 문법을 활용해 웹 어플리케이션을 개발하는 데 익숙합니다.",
+          },
+        ],
+      },
+      {
+        subject: "Vue",
+        content: [
+          {
+            title: "상태관리 라이브러리인 Vuex를 능숙하게 사용합니다.",
+            desc: "비지니스 로직에 따라 적절하게 모듈화하는 것을 지향합니다.",
+          },
+          {
+            title:
+              "Vue 스타일가이드를 준수하며 합리적인 방식으로 컴포넌트를 분리해서 관리합니다.",
+          },
+          {
+            title:
+              "렌더링 최적화를 위해 라이프사이클에 맞춰 데이터를 로딩합니다.",
+          },
+          {
+            title:
+              "Jest와 Vue Test Utils Library를 사용하여 테스트 코드 작성 경험이 있습니다.",
+          },
+        ],
+      },
+      {
+        subject: "DevOps",
+        content: [
+          {
+            title: "Github actions 배포를 자동화한 경험이 있습니다.",
+            desc: "코드 문법 검사 후 Unit Test 결과에 따라 배포를 하고 Slack으로 배포 결과를 받는 서비스를 구현한 경험이 있습니다.",
+          },
+          {
+            title:
+              "Nginx와 Docker를 사용해서 AWS 인프라(EC2, ECS, S3, CloudFront)에 배포한 경험이 있습니다.",
+          },
+          {
+            title: "Git, Github을 활용한 워크플로우 경험에 익숙합니다.",
+          },
+        ],
+      },
+      {
+        subject: "Communication",
+        content: [
+          {
+            title:
+              "프로젝트를 완수하기 위해 적극적으로 팀원과 소통하기를 좋아합니다.",
+          },
+        ],
+      },
+    ]);
+
+    const educations: IEdu[] = reactive([
+      {
+        subject: "Vue 개발자 과정",
+        organ: "Vue Mastery, Vue School",
+        period: "2020. 10 ~",
+        desc: "vue2, vue3의 초급/중급/심화과정 수료",
+      },
+      {
+        subject: "정보처리기사",
+        organ: "한국산업인력공단",
+        period: "2019. 5",
+      },
+      {
+        subject: "프론트엔드 개발자 과정",
+        organ: "그린 아키데미",
+        period: "2016. 7 ~ 2017. 1",
+        desc: "HTML5 마크업, CSS3 스타일링, 자바스크립트 동적구현, PHP 데이터 송/수신 처리, 게시판 구현, 로그인 기능 구현",
+      },
+    ]);
+
     return {
       careers,
+      skills,
+      educations,
     };
   },
 });
