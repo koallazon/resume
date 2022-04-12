@@ -55,6 +55,7 @@ export default defineComponent({
       console.log(val);
       changeTheme();
     });
+
     const changeTheme = () => {
       const theme: string = !isDark.value ? "dark" : "light";
       state.theme = theme;
