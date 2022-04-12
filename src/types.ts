@@ -11,6 +11,7 @@ export interface IProject {
   date: string;
   desc: string;
   url?: string;
+  skill?: string[];
   performance: string[];
 }
 

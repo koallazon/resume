@@ -45,6 +45,6 @@ export default defineComponent({
 
 <style scoped>
 .career-company:not(:last-child) {
-  margin-bottom: 2.5rem;
+  margin-bottom: 6rem;
 }
 </style>

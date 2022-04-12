@@ -13,6 +13,14 @@
         >({{ project.url }})</a
       >
     </p>
+    <div class="flex flex-wrap w-full mt-3">
+      <span
+        v-for="(name, i) in project.skill"
+        :key="i"
+        class="inline-block text-xs py-0.5 px-3 bg-gray-light dark:bg-gray-dark rounded-xl font-light mr-2"
+        >{{ name }}</span
+      >
+    </div>
     <ul class="text-sm mt-8">
       <li
         v-for="(perform, i) in project.performance"
@@ -51,6 +59,6 @@ ul li::before {
   margin-right: 5px;
 }
 .career-project:not(:last-child) {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 </style>

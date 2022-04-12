@@ -3,10 +3,7 @@
     <p class="text-xs text-gray-dark dark:text-gray-light mr-5">
       Last updated: {{ lastUpdateDate }}
     </p>
-    <button
-      class="bg-white text-font dark:text-font-dark pr-2 py-2"
-      @click="changeTheme('light')"
-    >
+    <button class="bg-white text-font dark:text-font-dark pr-2 py-2">
       <SunIcon class="h-5 w-5" />
     </button>
     <Switch
@@ -20,10 +17,7 @@
         class="inline-block w-4 h-4 transform bg-primary rounded-full transition duration-200 ease-in-out"
       />
     </Switch>
-    <button
-      class="bg-white text-font dark:text-font-dark pl-2 pr-4 py-2"
-      @click="changeTheme('dakr')"
-    >
+    <button class="bg-white text-font dark:text-font-dark pl-2 pr-4 py-2">
       <MoonIcon class="h-5 w-5" />
     </button>
   </header>
@@ -55,12 +49,11 @@ export default defineComponent({
       return state.theme ? state.theme === "dark" : false;
     });
 
-    watch(enabled, (val) => {
-      console.log(val);
+    watch(enabled, () => {
       changeTheme();
     });
 
-    const changeTheme = () => {
+    const changeTheme = (): void => {
       const theme: string = !isDark.value ? "dark" : "light";
       state.theme = theme;
       localStorage.setItem("theme", state.theme);
@@ -83,5 +76,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped></style>
