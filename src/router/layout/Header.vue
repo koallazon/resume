@@ -1,6 +1,8 @@
 <template>
   <header class="flex items-center justify-end">
-    <p class="text-xs text-gray mr-5">Last updated: {{ lastUpdateDate }}</p>
+    <p class="text-xs text-gray-dark dark:text-gray-light mr-5">
+      Last updated: {{ lastUpdateDate }}
+    </p>
     <button
       class="bg-white text-font dark:text-font-dark pr-2 py-2"
       @click="changeTheme('light')"

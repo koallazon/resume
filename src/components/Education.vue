@@ -7,7 +7,9 @@
       </h4>
       <p class="flex flex-row item-center text-xs tablet:text-sm gap-x-2">
         <span class="font-medium">{{ item.organ }}</span>
-        <span class="text-gray">({{ item.period }})</span>
+        <span class="text-gray-dark dark:text-gray-light"
+          >({{ item.period }})</span
+        >
       </p>
     </div>
     <!-- 교육 상세 -->

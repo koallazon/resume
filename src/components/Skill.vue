@@ -9,9 +9,11 @@
       >
         <div class="flex flex-col">
           <span>{{ content.title }}</span>
-          <span v-if="content.desc" class="text-xs leading-6 text-gray pl-2">{{
-            content.desc
-          }}</span>
+          <span
+            v-if="content.desc"
+            class="text-xs leading-6 text-gray-dark dark:text-gray-light pl-2"
+            >{{ content.desc }}</span
+          >
         </div>
       </li>
     </ul>
