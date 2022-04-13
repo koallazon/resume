@@ -27,6 +27,7 @@
 import { computed, defineComponent, reactive, ref, toRefs, watch } from "vue";
 import { Switch } from "@headlessui/vue";
 import { SunIcon, MoonIcon } from "@heroicons/vue/solid";
+import { event } from "vue-gtag";
 export default defineComponent({
   components: {
     SunIcon,
@@ -54,15 +55,20 @@ export default defineComponent({
     });
 
     const changeTheme = (): void => {
-      const theme: string = !isDark.value ? "dark" : "light";
-      state.theme = theme;
-      localStorage.setItem("theme", state.theme);
-      if (isDark.value) {
-        document.documentElement.classList.add("dark");
-        document.body.classList.add("dark:bg-background-dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-        document.body.classList.remove("dark:bg-background-dark");
+      try {
+        const theme: string = !isDark.value ? "dark" : "light";
+        state.theme = theme;
+        localStorage.setItem("theme", state.theme);
+        if (isDark.value) {
+          document.documentElement.classList.add("dark");
+          document.body.classList.add("dark:bg-background-dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.body.classList.remove("dark:bg-background-dark");
+        }
+        event("changeTheme", { method: state.theme });
+      } catch (err) {
+        console.log(err);
       }
     };
 
