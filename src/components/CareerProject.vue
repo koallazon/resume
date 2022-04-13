@@ -13,11 +13,11 @@
         >({{ project.url }})</a
       >
     </p>
-    <div class="flex flex-wrap w-full mt-3">
+    <div class="flex flex-wrap w-full mt-3 gap-1 tablet:gap-x-2">
       <span
         v-for="(name, i) in project.skill"
         :key="i"
-        class="inline-block text-xs py-0.5 px-3 bg-gray-light dark:bg-gray-dark rounded-xl font-light mr-2"
+        class="inline-block text-xs py-0.5 px-3 bg-gray-light dark:bg-gray-dark rounded-xl font-light"
         >{{ name }}</span
       >
     </div>
