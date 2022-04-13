@@ -101,7 +101,7 @@ export default defineComponent({
       {
         companyName: "오피스허브",
         period: "2017-07 ~ 2020-04",
-        role: "Front-end Engineer & 기획/디자인 팀장",
+        role: "Web Publisher & 기획/디자인 팀장",
         introduce: "300여개의 고객사, 그룹웨어 '오피스허브' 서비스 스타트업",
         project: [
           {
