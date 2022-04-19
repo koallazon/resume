@@ -1,17 +1,24 @@
 <template>
   <div class="career-project">
-    <h5 class="text-md tablet:text-lg font-medium mb-6">{{ project.title }}</h5>
+    <h5 class="text-md tablet:text-lg font-medium mb-6">
+      <span v-for="(title, i) in project.title" :key="i">
+        <span v-if="i > 0"> / </span>
+        <a
+          v-if="project.url && project.url[i]"
+          :href="project.url[i]"
+          target="_blank"
+          :title="title + 'link'"
+          class="hover:text-primary dark:hover:text-primary-dark underline"
+          >{{ title }}</a
+        >
+        <span v-else>
+          {{ title }}
+        </span>
+      </span>
+    </h5>
     <span class="text-sm">{{ project.date }}</span>
     <p class="text-sm">
       {{ project.desc }}
-      <a
-        v-if="project.url"
-        :href="project.url"
-        :title="project.title + 'link'"
-        class="underline"
-        target="_blank"
-        >({{ project.url }})</a
-      >
     </p>
     <div class="flex flex-wrap w-full mt-3 gap-1 tablet:gap-x-2">
       <span

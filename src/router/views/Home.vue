@@ -4,15 +4,16 @@
     <section class="tablet:pt-12 text-font dark:text-font-dark">
       <h2 class="text-2xl tablet:text-5xl font-bold mb-3">이태규</h2>
       <h3 class="text-xl tablet:text-3xl mb-6">Front-end Engineer</h3>
-      <p class="text-sm leading-7 tablet:text-base tablet:leading-9 word-keep">
-        단순히 개발만하는 것보다는 서비스 관련 지식에 대해 충분히 이해하고<br />
-        비지니스에 동참해서 주도적으로 일할 수 있는 환경을 선호합니다.<br />
-        함께 서로 같이 성장할 수 있는 팀을 찾고 있습니다.
-      </p>
+      <p
+        class="text-sm leading-7 tablet:text-base tablet:leading-9 word-keep"
+        v-html="introduce"
+      />
       <ul class="mt-5">
         <li class="flex item-center">
           <MailIcon class="h-5 w-5 mr-2" />
-          <a href="mailto:koallazon@gmail.com" class="underline"
+          <a
+            href="mailto:koallazon@gmail.com"
+            class="underline dark:hover:text-primary-dark underline"
             >koallazon@gmail.com</a
           >
         </li>
@@ -20,7 +21,7 @@
           <a
             href="https://github.com/koallazon"
             target="_blank"
-            class="flex item-center underline"
+            class="flex item-center underline dark:hover:text-primary-dark underline"
             ><span class="github-icon"></span>Github</a
           >
         </li>
@@ -31,12 +32,14 @@
       <h3 class="text-xl tablet:text-3xl font-bold mb-6">경력</h3>
       <CareerCompany v-for="(career, i) in careers" :key="i" :item="career" />
     </section>
+
     <!-- 기술 -->
     <section id="skill" class="text-font dark:text-font-dark mt-20">
       <h3 class="text-xl tablet:text-3xl font-bold mb-6">기술</h3>
       <Skill v-for="(skill, i) in skills" :key="i" :item="skill" />
     </section>
-    <!-- 교육 및 자격증-->
+
+    <!-- 교육 및 자격증 -->
     <section id="edu_license" class="text-font dark:text-font-dark mt-20">
       <h3 class="text-xl tablet:text-3xl font-bold mb-6">교육 / 자격증</h3>
       <EduLicense v-for="(edu, i) in educations" :key="i" :item="edu" />
@@ -45,12 +48,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, ref, onMounted } from "vue";
 import CareerCompany from "../../components/CareerCompany.vue";
 import Skill from "../../components/Skill.vue";
 import EduLicense from "../../components/Education.vue";
 import { MailIcon } from "@heroicons/vue/solid";
 import { ICareer, ISkill, IEdu } from "../../types";
+
 export default defineComponent({
   name: "Home",
   components: {
@@ -60,70 +64,92 @@ export default defineComponent({
     MailIcon,
   },
   setup() {
+    const introduce = ref<string>(`
+        안녕하세요. 5년차 프론트엔드 개발자입니다.<br>
+        단순히 코딩만하는 것보다는 서비스 관련 지식에 대해 충분히 이해하고<br>
+        비지니스에 동참해서 주도적으로 일할 수 있는 환경을 선호합니다.<br>
+        함께 서로 같이 성장할 수 있는 팀을 찾고 있습니다.
+    `);
+
     const careers: ICareer[] = reactive([
       {
         companyName: "빵야네트웍스",
+        companyUrl: "https://www.bbangyanetworks.com",
         period: "2020-04 ~ 재직 중",
         role: "Front-end Engineer",
         introduce:
           "동시 접속자 10만명, 글로벌 티켓사 20개 연동,<br/> K-POP 라이브 콘서트 플랫폼 서비스 스타트업",
         project: [
           {
-            title: "BBangya TV",
+            title: ["BBangya TV", "LiVE ON CAST"],
             date: "2020-05 ~ 2022-04",
             desc: "글로벌 라이브 방송 플랫폼",
-            url: "https://www.bbangyatv.com",
+            url: ["https://bbangyatv.com", "https://liveoncast.com"],
             skill: ["Vue", "Vuex", "Vuetify", "WebSocket", "AWS S3", "Github"],
             performance: [
-              "서비스 런칭, 전반적으로 프론트엔드 설계/구현/배포",
-              "Virtual DOM을 이용한 브라우저 렌더링 성능 최적화",
-              "서비스의 복잡성이 올라감에 따라 상태관리 library를 모듈화",
-              "JWT를 이용한 인증",
-              "PG사를 통한 결제 구현",
-              "Native WebView와 통신하기 위한 JS Bridge 설계/구현",
-              "실제 API 수준의 Mocking(JSON, lowdb, express)개발 환경 구성",
+              "프론트엔드 기술환경 세팅(100%)",
+              "서비스 런칭, 전반적으로 프론트엔드 설계/구현/배포(기여도 80%)",
+              "Virtual DOM을 이용한 브라우저 렌더링 성능 최적화(기여도 100%)",
+              "서비스의 복잡성이 올라감에 따라 상태관리 library를 모듈화(기여도 100%)",
+              "JWT를 이용한 인증(기여도 50%)",
+              "PG사를 통한 결제 구현(기여도 50%)",
+              "Native WebView와 통신하기 위한 JS Bridge 설계/구현(기여도 80%)",
+              "실제 API 수준의 Mocking(JSON, lowdb, express)개발 환경 구성(기여도 100%)",
               "Jest 기반의 테스트 작성",
               "GitHub Actions 을 통한 CI/CD",
             ],
           },
           {
-            title: "대입용",
+            title: ["IOK-MUSIC", "IOK-MUSIC Back Office"],
+            date: "2021-04 ~ 2020-05",
+            desc: "131Label 공식사이트로서 공지사항, 아티스트 정보, 메일링 구독 서비스 등을 제공",
+            url: ["https://www.iokmusic.com", "https://cms.iokmusic.com"],
+            skill: ["Vue", "Vuex", "vuetify", "Docker", "AWS S3", "Github"],
+            performance: [
+              "프론트엔드 기술환경 세팅(100%)",
+              "Client 설계/구현/배포(기여도 50%)",
+              "Back Office 구현(기여도 80%)",
+              "Docker와 GitHub Actions를 이용한 AWS ECS Fargate 배포(기여도 30%)",
+            ],
+          },
+          {
+            title: ["대입용"],
             date: "2020-02 ~ 2020-03",
             desc: "대학입시 정보 웹사이트",
             skill: ["Nuxt", "Vuex", "vuetify", "Nginx"],
             performance: [
-              "UI Framework(Vuetify)를 이용해서 빠르게 구현한 반응형 웹",
-              "Nginx, pm2를 사용해서 배포",
+              "UI Framework(Vuetify)를 이용해서 빠르게 구현한 반응형 웹(기여도 100%)",
+              "Nginx, pm2를 사용해서 배포(기여도 30%)",
             ],
           },
         ],
       },
       {
         companyName: "오피스허브",
+        companyUrl: "https://www.officehub.kr",
         period: "2017-07 ~ 2020-04",
-        role: "Web Publisher & 기획/디자인 팀장",
+        role: "Front-end Engineer",
         introduce: "300여개의 고객사, 그룹웨어 '오피스허브' 서비스 스타트업",
         project: [
           {
-            title: "그룹웨어 연동 메신저",
+            title: ["그룹웨어 연동 메신저"],
             date: "2019-02 ~ 2020-02",
             desc: "그룹웨어와 연동되는 메신저",
             skill: ["Vue", "Electron", "FireBase FireStore"],
             performance: [
-              "엡 기획/퍼블리싱/서비스 런칭",
-              "Desktop App 채팅 메시지 조회, 조직도 조회 속도 최적화",
-              "Desktop App 유지보수",
+              "엡 기획/퍼블리싱/서비스 런칭(기여도 70%)",
+              "Desktop App 채팅 메시지 조회, 조직도 조회 속도 최적화(기여도 100%)",
+              "Desktop App 유지보수(기여도 50%)",
             ],
           },
           {
-            title: "그룹웨어",
+            title: ["그룹웨어"],
             date: "2017-07 ~ 2020-04",
             desc: "복합기 연동에 특화된 그룹웨어 업무 플랫폼",
             skill: ["HTML5", "CSS3", "jQuery", "PHP"],
             performance: [
-              "전반적인 그룹웨어 서비스 기획, UI 설계/구현",
-              "성과를 통해 입사 2년차에 기획/디자인 팀장으로 진급",
-              "반응형 웹 최적화",
+              "전반적인 그룹웨어 서비스 기획, UI 설계/구현(기여도 70%)",
+              "반응형 웹 최적화 (기여도 80%)",
               "전자메일, 일정관리 리뉴얼(기여도 50%)",
               "GitLab 을 통한 CI/CD 배포",
             ],
@@ -236,9 +262,22 @@ export default defineComponent({
         period: "2016. 7 ~ 2017. 1",
         desc: "HTML5 마크업, CSS3 스타일링, 자바스크립트 동적구현, PHP 데이터 송/수신 처리, 게시판 구현, 로그인 기능 구현",
       },
+      {
+        subject: "영산대학교",
+        organ: "호텔경영학과",
+        period: "2003. 3 ~ 2010. 2",
+        desc: "학점 3.9/4.5",
+      },
+      {
+        subject: "충렬고등학교",
+        organ: "자연계",
+        period: "2000. 3 ~ 2003. 2",
+        desc: "",
+      },
     ]);
 
     return {
+      introduce,
       careers,
       skills,
       educations,

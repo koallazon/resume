@@ -4,7 +4,13 @@
     <div class="relative h-auto">
       <div class="flex flex-col sticky top-12">
         <h4 class="text-md tablet:text-lg font-medium mb-5">
-          {{ item.companyName }}
+          <a
+            :href="item.companyUrl"
+            target="_blank"
+            :title="item.companyName + ' link'"
+            class="hover:text-primary dark:hover:text-primary-dark underline"
+            >{{ item.companyName }}</a
+          >
         </h4>
         <span class="text-sm mb-2">{{ item.period }}</span>
         <span class="text-sm">{{ item.role }}</span>

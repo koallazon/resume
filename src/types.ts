@@ -1,5 +1,6 @@
 export interface ICareer {
   companyName: string;
+  companyUrl: string;
   period: string;
   role: string;
   introduce: string;
@@ -7,10 +8,10 @@ export interface ICareer {
 }
 
 export interface IProject {
-  title: string;
+  title: string[];
   date: string;
   desc: string;
-  url?: string;
+  url?: string[];
   skill?: string[];
   performance: string[];
 }
