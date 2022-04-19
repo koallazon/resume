@@ -85,7 +85,15 @@ export default defineComponent({
             date: "2020-05 ~ 2022-04",
             desc: "글로벌 라이브 방송 플랫폼",
             url: ["https://bbangyatv.com", "https://liveoncast.com"],
-            skill: ["Vue", "Vuex", "Vuetify", "WebSocket", "AWS S3", "Github"],
+            skill: [
+              "Vue",
+              "Vuex",
+              "Vuetify",
+              "WebSocket",
+              "AWS S3",
+              "AWS CloudFront",
+              "Github",
+            ],
             performance: [
               "프론트엔드 기술환경 세팅(100%)",
               "서비스 런칭, 전반적으로 프론트엔드 설계/구현/배포(기여도 80%)",
@@ -104,7 +112,15 @@ export default defineComponent({
             date: "2021-04 ~ 2020-05",
             desc: "131Label 공식사이트로서 공지사항, 아티스트 정보, 메일링 구독 서비스 등을 제공",
             url: ["https://www.iokmusic.com", "https://cms.iokmusic.com"],
-            skill: ["Vue", "Vuex", "vuetify", "Docker", "AWS S3", "Github"],
+            skill: [
+              "Vue",
+              "Vuex",
+              "vuetify",
+              "Docker",
+              "AWS S3",
+              "AWS ECS",
+              "Github",
+            ],
             performance: [
               "프론트엔드 기술환경 세팅(100%)",
               "Client 설계/구현/배포(기여도 50%)",
@@ -266,7 +282,7 @@ export default defineComponent({
         subject: "영산대학교",
         organ: "호텔경영학과",
         period: "2003. 3 ~ 2010. 2",
-        desc: "학점 3.9/4.5",
+        desc: "학사 졸업, 학점 3.9/4.5",
       },
       {
         subject: "충렬고등학교",
