@@ -135,7 +135,7 @@ export default defineComponent({
             skill: ["Nuxt", "Vuex", "vuetify", "Nginx"],
             performance: [
               "UI Framework(Vuetify)를 이용해서 빠르게 구현한 반응형 웹(기여도 100%)",
-              "Nginx, pm2를 사용해서 배포(기여도 30%)",
+              "Nginx, pm2를 사용해서 배포(기여도 50%)",
             ],
           },
         ],
