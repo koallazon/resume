@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, onMounted } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import CareerCompany from "../../components/CareerCompany.vue";
 import Skill from "../../components/Skill.vue";
 import EduLicense from "../../components/Education.vue";
@@ -97,8 +97,8 @@ export default defineComponent({
             performance: [
               "프론트엔드 기술환경 세팅(100%)",
               "서비스 런칭, 전반적으로 프론트엔드 설계/구현/배포(기여도 80%)",
-              "Virtual DOM을 이용한 브라우저 렌더링 성능 최적화(기여도 100%)",
-              "서비스의 복잡성이 올라감에 따라 상태관리 library를 모듈화(기여도 100%)",
+              "Virtual Scroll을 활용한 성능 최적화(기여도 100%)",
+              "상태관리(vuex) 모듈화(기여도 100%)",
               "JWT를 이용한 인증(기여도 50%)",
               "PG사를 통한 결제 구현(기여도 50%)",
               "Native WebView와 통신하기 위한 JS Bridge 설계/구현(기여도 80%)",
