@@ -81,10 +81,10 @@ export default defineComponent({
           "동시 접속자 10만명, 글로벌 티켓사 20개 연동,<br/> K-POP 라이브 콘서트 플랫폼 서비스 스타트업",
         project: [
           {
-            title: ["BBangya TV", "LiVE ON CAST"],
+            title: ["BBangya TV"],
             date: "2020-05 ~ 2022-04",
             desc: "글로벌 라이브 방송 플랫폼",
-            url: ["https://bbangyatv.com", "https://liveoncast.com"],
+            url: ["https://bbangyatv.com"],
             skill: [
               "Vue",
               "Vuex",
@@ -111,7 +111,7 @@ export default defineComponent({
             title: ["IOK-MUSIC", "IOK-MUSIC Back Office"],
             date: "2021-04 ~ 2020-05",
             desc: "131Label 공식사이트로서 공지사항, 아티스트 정보, 메일링 구독 서비스 등을 제공",
-            url: ["https://www.iokmusic.com", "https://cms.iokmusic.com"],
+            url: [],
             skill: [
               "Vue",
               "Vuex",
