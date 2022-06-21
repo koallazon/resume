@@ -35,7 +35,7 @@ export default defineComponent({
     Switch,
   },
   setup() {
-    const lastUpdateDate = ref("2022-04-28");
+    const lastUpdateDate = ref("2022-06-21");
     const state = reactive({
       theme:
         localStorage.theme === "dark" ||

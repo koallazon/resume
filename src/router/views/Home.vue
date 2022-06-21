@@ -67,15 +67,32 @@ export default defineComponent({
     const introduce = ref<string>(`
         안녕하세요. 5년차 프론트엔드 개발자입니다.<br>
         단순히 코딩만하는 것보다는 서비스 관련 지식에 대해 충분히 이해하고<br>
-        비지니스에 동참해서 주도적으로 일할 수 있는 환경을 선호합니다.<br>
-        함께 서로 같이 성장할 수 있는 팀을 찾고 있습니다.
+        비지니스에 동참해서 주도적으로 일할 수 있는 환경을 선호합니다.
     `);
 
     const careers: ICareer[] = reactive([
       {
+        companyName: "하나투어",
+        companyUrl: "https://www.hanatour.com",
+        period: "2022-06 ~ 재직 중",
+        role: "Front-end Engineer",
+        introduce:
+          "국내 1등 여행사 하나투어! 전세계 패키지 여행, 항공권, 호텔, 자유여행 등 실시간 예약이 가능한 서비스를 제공",
+        project: [
+          {
+            title: ["Planner"],
+            date: "2022-06",
+            desc: "여행 스케줄러",
+            url: ["https://mscheduler.hanatour.com/"],
+            skill: ["Nuxt", "Typescript", "Vuex", "Vuetify"],
+            performance: ["서비스 고도화"],
+          },
+        ],
+      },
+      {
         companyName: "빵야네트웍스",
         companyUrl: "https://www.bbangyanetworks.com",
-        period: "2020-04 ~ 재직 중",
+        period: "2020-04 ~ 2022-06",
         role: "Front-end Engineer",
         introduce:
           "동시 접속자 10만명, 글로벌 티켓사 20개 연동,<br/> K-POP 라이브 콘서트 플랫폼 서비스 스타트업",

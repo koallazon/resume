@@ -11,6 +11,6 @@ cd dist
 git init
 git add -A
 git commit -m $1
-git push -f git@github.com-koalla:koallazon/resume.git master:resume-pages
+git push -f git@github.com-koallazon:koallazon/resume.git main:resume-pages
 
 cd -
