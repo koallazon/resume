@@ -24,10 +24,10 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref, toRefs, watch } from "vue";
-import { Switch } from "@headlessui/vue";
-import { SunIcon, MoonIcon } from "@heroicons/vue/solid";
-import { event } from "vue-gtag";
+import { computed, defineComponent, reactive, ref, toRefs, watch } from 'vue'
+import { Switch } from '@headlessui/vue'
+import { SunIcon, MoonIcon } from '@heroicons/vue/solid'
+import { event } from 'vue-gtag'
 export default defineComponent({
   components: {
     SunIcon,
@@ -35,42 +35,42 @@ export default defineComponent({
     Switch,
   },
   setup() {
-    const lastUpdateDate = ref("2022-06-21");
+    const lastUpdateDate = ref('2023-01-17')
     const state = reactive({
       theme:
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-          ? "dark"
-          : "light",
-    });
-    const enabled = ref(state.theme !== "light");
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ? 'dark'
+          : 'light',
+    })
+    const enabled = ref(state.theme !== 'light')
 
     const isDark = computed(() => {
-      return state.theme ? state.theme === "dark" : false;
-    });
+      return state.theme ? state.theme === 'dark' : false
+    })
 
     watch(enabled, () => {
-      changeTheme();
-    });
+      changeTheme()
+    })
 
     const changeTheme = (): void => {
       try {
-        const theme: string = !isDark.value ? "dark" : "light";
-        state.theme = theme;
-        localStorage.setItem("theme", state.theme);
+        const theme: string = !isDark.value ? 'dark' : 'light'
+        state.theme = theme
+        localStorage.setItem('theme', state.theme)
         if (isDark.value) {
-          document.documentElement.classList.add("dark");
-          document.body.classList.add("dark:bg-background-dark");
+          document.documentElement.classList.add('dark')
+          document.body.classList.add('dark:bg-background-dark')
         } else {
-          document.documentElement.classList.remove("dark");
-          document.body.classList.remove("dark:bg-background-dark");
+          document.documentElement.classList.remove('dark')
+          document.body.classList.remove('dark:bg-background-dark')
         }
-        event("changeTheme", { method: state.theme });
+        event('changeTheme', { method: state.theme })
       } catch (err) {
-        console.log(err);
+        console.log(err)
       }
-    };
+    }
 
     return {
       ...toRefs(state),
@@ -78,7 +78,7 @@ export default defineComponent({
       isDark,
       lastUpdateDate,
       changeTheme,
-    };
+    }
   },
-});
+})
 </script>
